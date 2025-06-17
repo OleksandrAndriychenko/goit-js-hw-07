@@ -1,11 +1,19 @@
-function calculateTotal(number) {
-    let count = 0;
-    let numb = 0;
-    while (numb < number) {
-        numb += 1;
-        count += numb;
-    }
-    return count
-}
+const registerForm = document.querySelector(".login-form");
 
-console.log(calculateTotal(24))
+registerForm.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    
+    if (email === "" || password === "") {
+        return alert("All form fields must be filled in");
+    }
+    const userEmail = {}
+    userEmail.email = email;
+    userEmail.password = password;
+    console.log(userEmail);
+    form.reset();
+}
